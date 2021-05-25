@@ -3,8 +3,7 @@ Process the new building list (which includes floor numbers),
 convert coordinates and intersect with shapefiles
 """
 
-import re
-from xml.etree import ElementTree
+import os
 from csv import DictWriter, DictReader
 from pyproj import Transformer
 import shapefile
@@ -112,8 +111,14 @@ if __name__ == '__main__':
 
     for bydel in bydel_dict:
 
+        csv_path = os.path.join(
+            os.environ.get('userprofile'),
+            'Dropbox (NORSAR)/ML for building typologies/GIS_data/buildings/MatrikkelVyg_etaje-coordinates_Oslo.csv'
+        )
+        assert os.path.exists(csv_path), f'File not found: {csv_path}'
+
         process_csv(
-            'C:/Users/steffen/Dropbox (NORSAR)/ML for building typologies/GIS_data/buildings/MatrikkelVyg_etaje-coordinates_Oslo.csv',
+            csv_path,
             f'csv/building-list-{bydel}.csv',
             bydel
         )
