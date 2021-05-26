@@ -48,7 +48,7 @@ Next, we need to download a set of packages which the code depends on. To keep
 this separate from other projects, we install these packages in a _virtual
 environment_, which we create using Python. Still in PowerShell, in the code
 directory, type
-```
+```powershell
 python -m venv ml-env
 ```
 This environment needs to be activated before use, by typing
@@ -64,7 +64,7 @@ appearing at the prompt, indicating that the environment is active. This line
 above needs to be entered every time a new PowerShell window is opened.
 
 Now, download and install packages by 
-```
+```powershell
 pip install -r requirements.txt
 ```
 Once done, we are ready to go ahead. All the steps in this section needs only
@@ -85,7 +85,7 @@ pre-processing steps before downloading images:
     requires WGS84, hence we need to transform them.
  2. For convenience we divide the list into districts (bydel). 
     Both steps are done by running 
-```
+```powershell
 python process_building_list.py
 ```
 which will create one CSV file per district (_bydel_), and place them in the
@@ -113,7 +113,7 @@ free images per month. Ideally, we should have a NORSAR-wide account for this.
 
 Once you have the API key, we are ready to start downloading. First specify
 the key by typing
-```
+```powershell
 $Env:GMAPS_API_KEY = "AIzaSyAM9..."
 ```
 where the API key goes in the quotation marks. Now we can specify the CSV file
